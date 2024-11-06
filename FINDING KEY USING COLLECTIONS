@@ -1,0 +1,45 @@
+import java.util.Scanner;
+import java.util.Collections;
+import java.util.ArrayList;
+public class Main
+{
+	public static ArrayList<Integer>pavi(int ip1)
+	{
+	    int temp;
+	    ArrayList<Integer>x=new ArrayList<>();
+	    while(ip1!=0)
+	    {
+	        temp=ip1%10;
+	        x.add(temp);
+	        ip1=ip1/10;
+	    }
+	    return x;
+	}
+	public static int calculate(int ip1,int ip2,int ip3)
+	{
+	    ArrayList<Integer>digits1=pavi(ip1);
+	    ArrayList<Integer>digits2=pavi(ip2);
+	    ArrayList<Integer>digits3=pavi(ip3);
+	    
+	    int a=Collections.max(digits1) + Collections.max(digits2) + Collections.max(digits3);
+	    int b=Collections.min(digits1) + Collections.min(digits2) + Collections.min(digits3);
+	    
+	    return a+b;
+	}
+	
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the input1: ");
+	    int ip1=sc.nextInt();
+		System.out.println("Enter the input2: ");
+	    int ip2=sc.nextInt();
+	    System.out.println("Enter the input3: ");
+	    int ip3=sc.nextInt();
+	    
+	    int res=calculate(ip1,ip2,ip3);
+	    System.out.println("The key is "+res);
+	    
+	}
+	
+}
