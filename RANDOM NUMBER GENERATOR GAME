@@ -1,0 +1,92 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		Random r=new Random();
+
+		List<Integer> l=new ArrayList<>();
+		List<Integer> lp1=new ArrayList<>();
+		List<Integer> lp2=new ArrayList<>();
+		System.out.println("Enter name of player1: ");
+		String p1=sc.nextLine();
+		System.out.println("Enter name of player2: ");
+		String p2=sc.nextLine();
+		System.out.println("Hello "+p1+" and "+p2);
+		System.out.println("Computer has some 5 integers in its mind");
+		System.out.println("You both have 5 choices each to guess...");
+
+		while(l.size()!=5)
+		{
+			int n=r.nextInt(10)+1;
+			if(!l.contains(n))
+				l.add(n);
+		}
+
+		int s1=0;
+		int s2=0;
+
+		int pg1,pg2;
+
+		for(int i=0; i<3; i++)
+		{
+			System.out.println("P1 , guess your choice ---> ");
+			pg1=sc.nextInt();
+
+			while(lp1.contains(pg1) || lp2.contains(pg1))
+			{
+				System.out.println("It is already taken. Guess another number.");
+				pg1=sc.nextInt();
+			}
+			lp1.add(pg1);
+
+
+			if(l.contains(pg1))
+			{
+				System.out.println("CORRECT");
+				s1++;
+
+			}
+
+			else
+				System.out.println("WRONG");
+
+
+			System.out.println("P2 , guess your choice ---> ");
+			pg2=sc.nextInt();
+
+			while(lp1.contains(pg2) || lp2.contains(pg2))
+			{
+				System.out.println("It is already taken. Guess another number.");
+				pg1=sc.nextInt();
+
+			}
+			lp2.add(pg2);
+
+			if(l.contains(pg2))
+			{
+				System.out.println("CORRECT");
+				s2++;
+
+			}
+
+			else
+				System.out.println("WRONG");
+
+		}
+
+        System.out.println("The randomly generated numbers are: "+l);
+		System.out.println("Guess of player1: "+lp1);
+		System.out.println("Guess of player2: "+lp2);
+		
+		if(s1>s2)
+			System.out.println("Player 1 wins");
+		else if(s2>s1)
+			System.out.println("Player 2 wins");
+		else
+			System.out.println("Match draws");
+
+	} 
+
+}
