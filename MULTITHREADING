@@ -1,0 +1,45 @@
+import java.util.*;
+public class Main extends Thread
+{
+	String[] bname= {"hari","visnu","nithish","tulasi","krithick"};
+	String[] gname= {"neya","suba","swetha","priya","samyu"};
+
+	public void run()
+	{
+
+		for(String b:bname)
+		{
+			System.out.println(b);
+
+			try
+			{
+				Thread.sleep(2000);
+			}
+			catch(InterruptedException e)
+			{
+				System.out.println("Thread interrupted: "+e.getMessage());
+			}
+		}
+
+	}
+	public static void main(String[] args)
+	{
+
+		Main disThread=new Main();
+		disThread.start();
+		for(String b:disThread.gname)
+		{
+			System.out.println(b);
+
+			try
+			{
+				Thread.sleep(2000);
+			}
+			catch(InterruptedException e)
+			{
+				System.out.println("Thread interrupted: "+e.getMessage());
+			}
+		}
+
+	}
+}
