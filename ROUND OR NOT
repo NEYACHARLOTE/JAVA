@@ -1,0 +1,40 @@
+import java.util.*;
+public class Main
+{
+	public static boolean isround(int n)
+	{
+		HashSet<Integer>visited=new HashSet<>();
+
+		while(n!=1 && !visited.contains(n))
+		{
+			visited.add(n);
+			n=sumofdigit(n);
+		}
+		return n==1;
+	}
+
+	public static int sumofdigit(int a)
+	{
+		int digit;
+		int h=0;
+		while(a>0)
+		{
+
+			digit=a%10;
+			a=a/10;
+			h=h+digit*digit;
+
+		}
+		return h;
+	}
+
+	public static void main(String[] args)
+	{
+		int num1=29;
+		int num2=68;
+		int num3=123;
+		System.out.println(num1+ " is round "+isround(num1));
+		System.out.println(num2+ " is round "+isround(num2));
+		System.out.println(num3+ " is round "+isround(num3));
+	}
+}
