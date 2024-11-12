@@ -1,0 +1,13 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args)
+	{
+		String ans=args[0];
+		for(int i=0; i<ans.length(); i++)
+		{
+			System.out.println(args[0]);
+		}
+
+	}
+}
