@@ -1,0 +1,51 @@
+
+/*op: print prime no. between 1 to 100
+  constrains: 
+         1)2 digit prime no.
+         2)sum of digits even
+         3)first digit odd 
+         (no need to find (3) because if (2) is true this condition also satisfies)      */
+
+import java.util.*;
+public class Main
+{
+    public static boolean isprime(int n)
+    {
+        int count=0;
+        for(int j=2;j<n;j++)
+        {
+            if(n%j==0)
+            {
+                count++;                         
+            }                                   
+        }                                                  
+            return count==0;                              
+    }
+    
+    public static boolean sum(int n)
+    {
+        int temp=0;
+        int sum=0;
+        temp=n%10;
+        n=n/10;
+        sum=n+temp;
+        
+        return sum%2==0;
+        
+        
+    }
+   
+	public static void main(String[] args)
+	{
+	    for(int i=11;i<100;i++)
+	    {
+	        if(isprime(i))
+	        {
+	            if(sum(i))
+	            {
+	                System.out.println(i);
+	            }
+	        }
+	    }
+	}
+}
